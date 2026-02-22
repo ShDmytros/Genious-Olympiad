@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+<div class="flex justify-between h-full w-full gap-[100px] items-center max-lg:flex-col">
+    <form method="post" id="playForm" action="" class="flex flex-col gap-10 w-full">
+        {% csrf_token %}
+
+
+        <input type="hidden" name="problem_id" value="{{ problem.id }}">
+
+
+        <div class="flex flex-col gap-2">
+            <div class="p-3 bg-main-color w-max text-white text-3xl rounded-2xl font-bold">
+                <p>{{task}}/{{max_tasks_number}} | Your score is {{score}}</p>
+            </div>
+            <h1 class="text-4xl font-bold" id="problem_title">{{problem.name}}</h1>
+            <p id="problem_description">{{problem.description}}</p>    
+                   
+        </div>
+
+
+        <button name="action" value="next" type="submit" class="bg-main-color text-white h-[80px] rounded-2xl font-bold text-[20px] shadow-2xl">
+            {% if is_last %}Finish{% else %}Next{% endif %}
+        </button>
+
+    </form>
+
+    <div class="w-fit h-full bg-white rounded-2xl p-5 flex flex-col gap-5 shadow-2xl text-center">
+        <h1 class="text-3xl font-bold">{{ grade }}/10</h1>
+        <p class="">{{ explaining }}</p>
+    </div>
+</div>    
+
+<div id="loadingScreen" class="loadingScreen font-bold flex-col text-center">
+  <h1>Processing request...</h1>
+  <h1>Please, wait a little bit</h1>
+</div>
+
+<script src="{% static 'game/js/form.js' %}?v={{ STATIC_VERSION }}"></script>
+
+
+{% endblock %}

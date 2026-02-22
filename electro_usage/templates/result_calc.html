@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'electro_usage' %}">
+    <img class="w-[90px]" src="{% static 'core/img/buttons/back.png' %}?v={{ STATIC_VERSION }}" alt="">
+</a>
+<div class="flex flex-col text-center justify-center h-full w-full gap-[20px] items-center max-lg:flex-col">
+    {% if consumption_history %}
+
+    <h2 class="text-5xl font-bold mt-10">Simulation Graph</h2>
+
+    {% if final_consumption %}
+    <p class="text-xl font-bold mt-5">
+    Final Consumption: {{ final_consumption }}
+    </p>
+    {% endif %}
+
+    <canvas class="" id="energyChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const history = JSON.parse('{{ consumption_history|safe }}');
+
+        const ctx = document.getElementById('energyChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: history.map((_, index) => "Year " + index),
+                datasets: [{
+                    label: "Energy Consumption",
+                    data: history,
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %} {% load static %} {% load i18n %} {% load static i18n %}
+
+<section class="flex justify-center flex-wrap gap-10">
+
+
+<div class="max-w-3xl mx-auto p-10 text-black">
+
+  <h1 class="text-4xl font-bold mb-6 text-center">
+    🎮 Energy Grid Commander (POWERED WITH AI)
+  </h1>
+
+  <h2 class="text-2xl font-semibold mb-3">
+    🧑‍💼 Who Are You?
+  </h2>
+
+  <p class="mb-4">
+    You are the head of the national electricity system.
+  </p>
+
+  <p class="mb-6">
+    Your role is to manage power production, control the energy grid, and make important decisions that affect the entire country.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-3">
+    Your Responsibilities:
+  </h2>
+
+  <div class="space-y-2 mb-6">
+    <p>⚡ Stable electricity supply</p>
+    <p>💰 Managing the budget</p>
+    <p>🌍 Developing the energy system</p>
+    <p>👥 Meeting public demand</p>
+    <p>🔧 Maintaining grid stability</p>
+  </div>
+
+  <p>
+    Every decision you make has consequences.
+  </p>
+
+  <p>
+    If you make wrong choices — blackouts can happen.<br>
+    If you make smart decisions — the system stays stable and grows.
+  </p>
+
+</div>
+  <a
+  href="{% url 'play' %}"
+  class="white-selection bg-main-color w-full h-[500px] p-2 text-white hover:bg-[#999] duration-200 shadow-2xl rounded-2xl flex justify-center items-center"
+>
+  <img
+    class="h-full w-full object-cover rounded-xl shadow-xl bg-white relative brightness-50"
+    src="{% static 'game/img/baner.webp' %}"
+    alt=""
+  />
+  <div class="text-section mt-7 flex flex-col gap-1 absolute">
+    <h3 class="font-bold text-5xl max-lg:text-3xl max-md:text-2xl text-center">+ Start +</h3>
+    <p class="text-[14px] text-center"></p>
+  </div>
+</a>
+</section>
+<p id="word"></p>
+<!-- <script src="{% static 'core/js/game/game.js' %}?v={{ STATIC_VERSION }}"></script> -->
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="flex justify-between h-full w-full gap-[100px] items-center max-lg:flex-col">
+    <form method="post" class="flex flex-col gap-20 w-full">
+        {% csrf_token %}
+        <h1 class="text-center font-bold text-5xl">Calculation of electricity consumption</h1>
+        <hr class="h-1 bg-main-color w-full shadow-2xl">
+        <div class="flex flex-col justify-center items-center gap-[100px] w-full">
+            <div class="flex flex-col justify-center items-center gap-20">
+                <div class="flex flex-col gap-2 w-full">
+                    <div class="flex flex-col">
+                        <label class="font-bold">Number of apartments:<span class="text-red-500">*</span></label>
+                        <input required type="number" name="apartments" id="apartments" class="rounded-xl p-2 shadow" min="0">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-bold">Average electricity consumption per one apartment (kWh/month):<span class="text-red-500">*</span></label>
+                        <input required type="number" name="apt_consumption" id="apt_consumption" class="rounded-xl p-2 shadow" min="0">
+                    </div>                    
+                </div>
+
+                <div class="flex flex-col gap-2 w-full">
+                    <div class="flex flex-col">
+                        <label class="font-bold">Number of private buildings:<span class="text-red-500">*</span></label>
+                        <input required type="number" name="buildings" id="buildings" class="rounded-xl p-2 shadow" min="0">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-bold">Average electricity consumption per one building (kWh/month):<span class="text-red-500">*</span></label>
+                        <input required type="number" name="house_consumption" id="house_consumption" class="rounded-xl p-2 shadow" min="0">
+                    </div>                    
+                </div>
+
+                <div class="flex flex-col gap-2 w-full">
+                    <div class="flex flex-col">
+                        <label class="font-bold">Number of important infrastructure:<span class="text-red-500">*</span></label>
+                        <input required type="number" name="infrastructure" id="infrastructure" class="rounded-xl p-2 shadow" min="0">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-bold">Average electricity consumption per one infrastructure object (kWh/month):<span class="text-red-500">*</span></label>
+                        <input required type="number" name="public_consumption" id="public_consumption" class="rounded-xl p-2 shadow" min="0">
+                    </div>                    
+                </div>
+
+
+            </div>
+
+            <div class="text-2xl font-bold text-center">
+                Total objects: <span id="total">0</span>
+            </div>            
+        </div>
+
+        <!-- <hr class="h-1 bg-main-color w-full shadow-2xl">
+
+        <div>
+            <h2 class="text-2xl font-bold">Custom Measures <span class="text-red-500">*</span></h2>
+
+            <div id="measuresContainer" class="flex flex-col gap-6">
+            </div>
+
+            <button type="button"
+                    onclick="addMeasure()"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-xl">
+                + Add Measure
+            </button>            
+        </div>
+
+        <hr class="h-1 bg-main-color w-full shadow-2xl"> -->
+
+        <div>
+            <button id="submit" type="submit"
+                class="bg-main-color text-white h-[80px] w-full rounded-2xl font-bold text-[20px] shadow-2xl">
+                Calculate
+            </button>     
+            <p id="fillMessage" class="text-red-500">*Fill all required fields</p>         
+        </div>
+ 
+    </form>
+</div>
+
+
+<div id="loadingScreen" class="loadingScreen font-bold flex-col text-center">
+  <h1>Processing request...</h1>
+  <h1>Please, wait a little bit</h1>
+</div>
+
+<script src="{% static 'electro_usage/js/form.js' %}?v={{ STATIC_VERSION }}"></script>
+<script src="{% static 'electro_usage/js/count_total.js' %}?v={{ STATIC_VERSION }}"></script>
+<!-- <script src="{% static 'electro_usage/js/addMeasure.js' %}?v={{ STATIC_VERSION }}"></script> -->
+
+{% endblock %}
