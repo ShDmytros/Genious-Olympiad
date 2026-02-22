@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% load static %} {% load i18n %} {% load static i18n %} {% block before_content %}
+
+<div class="relative h-[calc(100vh-100px)] w-full">
+  <!-- Фото -->
+  <img
+    class="absolute inset-0 h-full w-full object-cover brightness-75"
+    src="{% static 'core/img/main/baner.jpg' %}"
+    alt="London"
+  />
+
+  <!-- Контент поверх фото -->
+  <div class="absolute inset-0 flex items-center justify-center z-10">
+    <h1 class="sm:text-8xl max-sm:text-5xl font-bold text-white drop-shadow-lg">
+      ElectroEase
+    </h1>
+  </div>
+</div>
+{% endblock before_content %} {% block content %}
+
+
+<div class="">
+  <section class="text-left flex flex-col gap-8">
+    <div class="flex flex-col gap-1">
+      <h2 class="text-3xl font-bold text-left">
+        Why you should use ElectroEase:
+      </h2>
+      <p class="text-left text-gray-700">
+        ElectroEase is an interactive online platform for calculating electricity consumption and managing energy usage.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <h2 class="text-3xl font-bold text-left">
+        The positive qualities of the website itself include:
+      </h2>
+      <ul class="list-decimal list-inside space-y-2 text-gray-700">
+        <p>
+          <li>User-Friendly Interface: ElectroEase offers an intuitive and easy-to-navigate interface, making it accessible to users of all technical levels.</li>
+          <li>Comprehensive Electricity Calculation: The platform provides accurate calculations for electricity consumption based on various factors like device power, usage time, and energy tariffs.</li>
+          <li>Energy Management Tools: Users can track their energy usage over time, set budgets, and receive alerts when consumption exceeds predefined limits.</li>
+        </p>
+      </ul>
+    </div>
+  </section>
+</div>
+
+
+<div>
+  <h1 class="text-4xl font-bold text-center">The latest news:</h1>
+  <div class="flex gap-5 overflow-x-auto scroll-smooth scrollbar-hide p-4">
+    {% for news in latest_news %}
+      <div class="min-w-[300px] bg-white rounded-2xl shadow-xl p-4">
+
+        <img src="{{ news.image.url }}"
+              class="rounded-xl w-full h-40 object-cover">
+
+        <h2 class="text-lg font-bold mt-3">
+          {{ news.title }}
+        </h2>
+
+        <p class="text-gray-600 text-sm">
+          {{ news.content|truncatewords:15 }}
+        </p>
+        <a href="{{ news.get_absolute_url }}"
+           class="font-bold mt-2 inline-block">
+          Read more
+        </a>
+      </div>
+    {% endfor %}
+
+  </div>  
+</div>
+
+{% endblock %}
