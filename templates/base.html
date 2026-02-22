@@ -1,0 +1,19 @@
+{% load static %}{% load i18n %} {% load static i18n %}
+
+<!DOCTYPE html>
+<!-- {% get_current_language as LANGUAGE_CODE %} -->
+<html lang="{{ LANGUAGE_CODE }}">
+  {% include 'includes/head.html' %}
+
+  <body class="black-selection flex flex-col bg-gray-100">
+    {% include 'includes/arrow.html' %} {% include 'includes/header.html' %}
+    <!--  -->
+    {% block before_content %} {% endblock before_content %}
+    <main class="flex flex-col gap-[50px] pt-[50px] black-selection relative">
+      {% block content %} {% endblock content %}
+    </main>
+    {% include 'includes/footer.html' %}
+
+    <script src="{% static 'core/js/brg_btn.js' %}?v={{ STATIC_VERSION }}"></script>
+  </body>
+</html>

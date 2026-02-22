@@ -1,0 +1,38 @@
+{% load i18n %} {% load static i18n %}
+<header class="bg-main-color shadow-2xl white-selection sticky top-0 left-0 z-50"> 
+  <div class="header-content">
+    {% include 'includes/logo.html' %}
+
+    <nav>
+      {% include 'includes/brg_btn.html' %}
+
+      <div class="md:block max-md:hidden">
+        <div
+          class="text-white flex gap-7 max-lg:text-[12px] max-sm:text-[10px]"
+        >
+          <!-- <select class="bg-black cursor-pointer">
+            <option class="cursor-pointer">EN</option>
+            <option class="cursor-pointer">DE</option>
+            <option class="cursor-pointer">UA</option>
+          </select> -->
+
+          <ul class="flex gap-3 font-bold">
+            <li class="nav-el text-[18px] duration-200 active:brightness-50">
+              <a href="{% url 'home' %}">Main</a>
+            </li>
+            <li class="nav-el text-[18px] duration-200 active:brightness-50">
+              <a href="{% url 'game' %}">Play</a>
+            </li>
+            <li class="nav-el text-[18px] duration-200 active:brightness-50">
+              <a href="{% url 'news' %}">News</a>
+            </li>
+            <li class="nav-el text-[18px] duration-200 active:brightness-50">
+              <a href="{% url 'electro_usage' %}">Calculate Usage</a>
+            </li>
+            <!-- <li class="nav-el"><a href="#">About Developer</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

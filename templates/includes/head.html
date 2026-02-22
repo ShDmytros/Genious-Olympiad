@@ -1,0 +1,44 @@
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElectroEase</title>
+  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}?v={{ STATIC_VERSION }}" />
+  <link
+    rel="stylesheet"
+    type="text/tailwindcss"
+    href="{% static 'css/tailwind.css' %}?v={{ STATIC_VERSION }}"
+  />
+  <link rel="icon" type="image/png" href="{% static 'core/img/logo/logo.png' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'core/img/logo/logo.ico' %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <meta property="og:image" content="https://study-ease.com/static/study/img/logo/logo.png">
+  <meta property="og:image:alt" content="ElectroEase Logo">
+
+  <meta property="og:title" content="ElectroEase">
+  <meta property="og:description" content="ElectroEase - an interactive online platform for calculating electricity consumption and managing energy usage.">
+  <meta property="og:url" content="https://www.study-ease.com/">
+  <meta property="og:type" content="website">
+
+  <link rel="canonical" href="https://study-ease.com/">
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "StudyEase",
+    "url": "https://www.study-ease.com",
+    "logo": "https://www.study-ease.com/static/study/img/header/logo/logo.png"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+</head>

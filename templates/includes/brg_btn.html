@@ -1,0 +1,46 @@
+{% load static %}{% load i18n %} {% load static i18n %}
+
+<div class="relative md:hidden max-md:block">
+  <img
+    class="cursor-pointer duration-200 active:brightness-50"
+    id="burger"
+    src="{% static 'core/img/header/brg_btn.svg' %}"
+    alt=""
+  />
+
+  <div
+    id="menu"
+    class="w-fit p-3 bg-white flex flex-col gap-4 absolute top-14 right-1 hidden shadow-2xl min-w-[100px]"
+  >
+  <div class="flex flex-col">
+      <div class="w-full h-full">
+        <a
+        href="{% url 'home' %}"
+        >Main</a
+      >
+      </div>
+      <hr />
+      <div class="w-full h-full">
+        <a
+        href="{% url 'game' %}"
+        >Play</a
+      >    
+      </div>
+      <hr />
+      <div class="w-full h-full">
+        <a
+        href="{% url 'news' %}"
+        >News</a
+      >
+      </div>
+      <hr />
+      <div class="w-full h-full">
+        <a
+          href="{% url 'electro_usage' %}"
+          >Calculate Usage</a
+        >        
+      </div>
+
+  </div>
+  </div>
+</div>

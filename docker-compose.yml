@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+      - ./media:/code/media
+    ports:
+      - "8000:8000"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./staticfiles:/code/staticfiles
+      - ./media:/code/media
+      # - ./nginx.conf:/etc/nginx/conf.d/default.conf # Для продакшн-режиму
+      - ./nginx.conf:/code/nginx.conf # Для локального тестування
+    depends_on:
+      - web

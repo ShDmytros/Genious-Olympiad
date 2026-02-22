@@ -1,0 +1,70 @@
+{% load static %}{% load i18n %} {% load static i18n %}
+
+<footer
+  class="flex justify-between items-center bg-main-color max-md:flex-col max-md:justify-center max-md:gap-5 shadow-2xl white-selection h-full pt-[50px] pb-[50px]"
+>
+  <div class="flex flex-col gap-4 items-center justify-center">
+    {% include 'includes/logo.html' %}    
+    <!-- <div class="w-full flex gap-3 items-center justify-center">
+      <a href="https://t.me/TheStudyEase" target="_blank">
+        <img class="h-[20px] duration-200 hover:brightness-75 active:brightness-50" src="{% static 'core/img/footer/telegram.png' %}" alt="telegram">
+      </a>
+      <a href="https://www.youtube.com/@TheStudyEase" target="_blank">
+        <img class="h-[18px] duration-200 hover:brightness-75 active:brightness-50" src="{% static 'core/img/footer/youtube.png' %}" alt="youtube">
+      </a>
+      <a href="https://www.instagram.com/thestudyease/" target="_blank">
+        <img class="h-[20px] duration-200 hover:brightness-75 active:brightness-50" src="{% static 'core/img/footer/instagram.png' %}" alt="instagram">
+      </a>
+    </div> -->
+  </div>
+
+
+  <div class="text-white flex flex-col gap-[20px]">
+    <div class="contacts flex flex-col gap-[15px]">
+      <h1 class="text-3xl font-bold">Contacts:</h1>
+      <div class="items flex flex-col gap-[5px]">
+        <div>
+          <a href="mailto:thestudyease@gmail.com">
+            <p class="duration-200 active:brightness-50">
+              Email regarding the website: thestudyease@gmail.com
+            </p></a
+          >
+          <a href="mailto:shtuchkadmytro@gmail.com">
+            <p class="duration-200 active:brightness-50">
+              Email for proposals: shtuchkadmytro@gmail.com
+            </p></a
+          >          
+        </div>
+
+        <div class="developer">
+          <a
+            href="https://freelancehunt.com/freelancer/dima_shtuchka.html"
+            target="_blank"
+            ><p class="duration-200 active:brightness-50">
+              Freelance: Dmytro Shtuchka
+            </p></a
+          >
+          <a href="https://github.com/ShDmytros" target="_blank"
+            ><p class="duration-200 active:brightness-50">
+              GitHub - @ShDmytros
+            </p></a
+          >
+          <a
+            href="https://t.me/small_wikipedia_bot"
+            target="_blank"
+            ><p class="duration-200 active:brightness-50">
+              Small Wikipedia Bot on Telegram
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <p class="font-bold">Version: 1.0</p>      
+      <p class="font-bold">©2026 ElectroEase. {%trans "All rights reserved"%}</p>
+
+    </div>
+
+  </div>
+</footer>
